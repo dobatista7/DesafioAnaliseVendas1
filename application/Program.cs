@@ -1,4 +1,4 @@
-﻿namespace DesafioAnaliseVendas1
+﻿namespace DesafioAnaliseVendas1.application
 {
     internal class Program
     {
