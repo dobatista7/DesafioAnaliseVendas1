@@ -1,4 +1,5 @@
 ﻿using DesafioAnaliseVendas1.entities;
+using System.Globalization;
 using System.IO;
 
 namespace DesafioAnaliseVendas1.application
@@ -7,6 +8,10 @@ namespace DesafioAnaliseVendas1.application
     {
         static void Main(string[] args)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
+            Console.Write("Entre o caminho do arquivo: ");
+            string path = Console.ReadLine();
 
             // Leitura do arquivo e criação da lista de vendas
             List<Sale> sales = new List<Sale>();
@@ -49,7 +54,13 @@ namespace DesafioAnaliseVendas1.application
                 Console.WriteLine(sale);
             }
 
-            
+            // Cálculo do valor total vendido pelo vendedor Logan nos meses 1 e 7
+            double totalLogan = sales
+                .Where(s => s.Seller == "Logan" && (s.Month == 1 || s.Month == 7))
+                .Sum(s => s.Total);
+
+            Console.WriteLine();
+            Console.WriteLine($"Valor total vendido pelo vendedor Logan nos meses 1 e 7 = {totalLogan:F2}");
         }
     }
 }
