@@ -34,6 +34,22 @@ namespace DesafioAnaliseVendas1.application
                 Console.WriteLine($"Erro: {e.Message} (O sistema não pode encontrar o arquivo especificado)");
                 return; // Encerra o programa em caso de erro na leitura do arquivo
             }
+
+            // Análise das cinco primeiras vendas de 2016 com maior preço médio
+            var topSales2016 = sales
+                .Where(s => s.Year == 2016)
+                .OrderByDescending(s => s.AveragePrice)
+                .Take(5)
+                .ToList();
+
+            Console.WriteLine();
+            Console.WriteLine("Cinco primeiras vendas de 2016 de maior preço médio:");
+            foreach (var sale in topSales2016)
+            {
+                Console.WriteLine(sale);
+            }
+
+            
         }
     }
 }
