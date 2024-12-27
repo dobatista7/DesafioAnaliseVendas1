@@ -1,6 +1,7 @@
 ﻿using DesafioAnaliseVendas1.entities;
 using System.Globalization;
 using System.IO;
+using System.Net.WebSockets;
 
 namespace DesafioAnaliseVendas1.application
 {
@@ -47,6 +48,8 @@ namespace DesafioAnaliseVendas1.application
                 .Take(5)
                 .ToList();
 
+
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Cinco primeiras vendas de 2016 de maior preço médio:");
             foreach (var sale in topSales2016)
@@ -59,6 +62,7 @@ namespace DesafioAnaliseVendas1.application
                 .Where(s => s.Seller == "Logan" && (s.Month == 1 || s.Month == 7))
                 .Sum(s => s.Total);
 
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine($"Valor total vendido pelo vendedor Logan nos meses 1 e 7 = {totalLogan:F2}");
         }
